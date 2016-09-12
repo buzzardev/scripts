@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
+set -e
+
 if test -f .env.dist; then
     if test ! -f .env; then
-        echo -e "\033[33mCreate environment file\033[0m"
         cp ".env.dist" ".env"
     else
-        echo -e "\033[33mCheck environment file\033[0m"
+
         cp ".env.dist" ".env.merge"
         while IFS="=" read -r -a LINE
         do
